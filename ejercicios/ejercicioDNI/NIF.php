@@ -14,8 +14,17 @@ class NIF {
     }
 
     public function setDNI($dni) {
-        $this->dni = $dni;
-        $this->letra = ($this->dni === 0)?" ":$this->calcularLetra();
+        if(!is_numeric($dni)) {
+            $this->dni = preg_replace("/[^0-9]+/","",$dni);
+            $this->letra = substr($dni,-1);
+            if ($this->letra != $this->calcularLetra()) {
+                throw new Exception("Letra incorrecta");
+            }
+        } else {
+            $this->dni = $dni;
+            $this->letra = ($this->dni === 0)?" ":$this->calcularLetra();
+        }
+        
     }
 
     public function leer(){
@@ -30,7 +39,7 @@ class NIF {
 
     private function calcularLetra() {
         $num_letra = ($this->dni % 23);
-        echo "letra: ".$this->letra ."\n"; 
+        //echo "letra: ".$this->letra ."\n"; 
         return NIF::letras[$num_letra];     
 
         
