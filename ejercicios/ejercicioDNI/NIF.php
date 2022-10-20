@@ -33,7 +33,7 @@ class NIF {
     }
 
     public function mostrar(){
-        echo "letra1: ".$this->letra ."\n"; 
+        echo "letra: ".$this->letra ."\n"; 
        return  $this->dni."-".$this->letra;  
     }
 
