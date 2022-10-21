@@ -33,8 +33,13 @@ class NIF {
     }
 
     public function mostrar(){
-        echo "letra: ".$this->letra ."\n"; 
+      //  echo "letra: ".$this->letra ."\n"; 
        return  $this->dni."-".$this->letra;  
+    }
+
+    public function __toString()
+    {
+        return $this->mostrar();
     }
 
     private function calcularLetra() {
