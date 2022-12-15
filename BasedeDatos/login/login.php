@@ -1,20 +1,18 @@
 <?php
 require_once("modelo/usuario.php");
+require_once("BD.php");
 session_start();
 $mensaje ="";
 if ($_SERVER["REQUEST_METHOD"]== "POST" && isset($_POST["correo"])&& isset($_POST["password"]) ) {
     $correo = $_POST["correo"];
     $passwd = $_POST["password"];
-    $dsn = "mysql:dbname=docker_demo;host=docker-mysql";
-    $usuario ="root";
-    $password = "root123";
-    $bd = new PDO($dsn, $usuario, $password);
-    $sql = "select * from usuario where correo='$correo' and password='$passwd' limit 1";
+    $bd = BD::getConexion();
+   // $sql = "select * from usuario where correo='$correo' and password='$passwd' limit 1";
     //echo $sql;
     //$datos = $bd->query($sql); //JAMAS NO USAR
 
-    $stm = $bd->prepare("SELECT * from usuario where correo = :correo and password = :password limit 1");
-    $stm->execute([":correo"=>$correo,":password"=>$passwd]);
+    $stm = $bd->prepare("SELECT * from usuario where correo = :correo  limit 1");
+    $stm->execute([":correo"=>$correo]);
 
     if ($stm->rowCount() == 1) {
         $_SESSION["correo"] = $correo;

@@ -7,17 +7,23 @@ class Usuario {
     private $correo;
     private $password;
 
-    public function __construct($idUsuario,$nombre,$apellidos,$correo,$password)
+    public function __construct($idUsuario,$nombre,$apellidos,$correo,$password,$encriptar=false)
     {
         $this->idUsuario = $idUsuario;
         $this->nombre = $nombre;
         $this->apellidos = $apellidos;
         $this->correo = $correo;
-        $this->password = $password;
+        if ($encriptar) {
+            $this->password = password_hash($_POST["password"],PASSWORD_DEFAULT);
+        }else {
+            $this->password = $password;
+        }
+        
+
     }
 
     public function comprobarValidarUsuario($correo, $contraseña) {
-        return $this->password == $contraseña  && $correo == $this->correo;
+        return  password_verify($contraseña,$this->password) && $correo == $this->correo;
     }
     
 
@@ -51,5 +57,12 @@ class Usuario {
     public function getCorreo()
     {
         return $this->correo;
+    }
+    /**
+     * Get the value of password
+     */ 
+    public function getPassword()
+    {
+        return $this->password;
     }
 }
