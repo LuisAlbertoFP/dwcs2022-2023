@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-7" ?>
+<CATALOGO>
+    <CD>
+        <TITULO>Tinta roja</TITULO>
+        <ARTISTA>Andres Calamaro</ARTISTA>
+        <ORIGEN>AR</ORIGEN>
+        <PRECIO>5.90</PRECIO>
+        <FECHA>
+            <MES>12</MES>
+            <ANO>2006</ANO>
+        </FECHA>
+        
+    </CD>
+    <CD>
+        <TITULO>La Lengua Popular</TITULO>
+        <ARTISTA>Andres Calamaro</ARTISTA>
+        <ORIGEN>AR</ORIGEN>
+        <PRECIO>9.90</PRECIO>
+        <ANO>2007</ANO>
+    </CD>
+</CATALOGO>
