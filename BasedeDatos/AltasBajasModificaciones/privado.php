@@ -1,5 +1,6 @@
 <?php
 require_once("modelo/usuario.php");
+require_once("menu.php");
 require_once("BD.php");
 if (session_status() != PHP_SESSION_ACTIVE) {
     session_start();
@@ -49,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Guardar"]) ) {
     <title>Document</title>
 </head>
 <body>
+   <?php menu(); ?>
    <a href="privado.php" onclick="return confirm('Estas seguro?')" >Nuevo usuario</a>
    <h1>Alta usuarios</h1> 
    <div><?=$mensaje?></div>
