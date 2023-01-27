@@ -1,9 +1,10 @@
 <?php
  require_once(dirname(__FILE__)."/XmlLibro.php");
- //$libro = new Libro(1,"aut","tit","gen","price","pdate","desc");
+ $libro = new Libro(1,"aut","tit","gen","price","pdate","desc");
  //var_dump($libro);
 $libros = [];
 $xmlLibros = new DOMDocument();
+
 $xmlLibros->load(dirname(__FILE__)."/books.xml");
 /*$catalogo = $xmlLibros->documentElement;
 foreach ($catalogo->childNodes as $hijo) {
@@ -17,4 +18,8 @@ foreach ($librosXML as $libroxml) {
 }
 var_dump($libros);
 
+$xmlLibros = XmlLibro::appendLibro($xmlLibros,$libro);
+$xmlLibros->formatOutput = false;
+$xmlLibros->preserveWhiteSpace=true;
+$xmlLibros->save(dirname(__FILE__)."/libros1.xml");
 

@@ -4,7 +4,7 @@ class Libro {
 
    public function __construct(
         private $id,
-        private $autor,
+        private $author,
         private $title,
         private $genre,
         private $price,
@@ -38,21 +38,21 @@ class Libro {
         }
 
         /**
-         * Get the value of autor
+         * Get the value of author
          */ 
-        public function getAutor()
+        public function getAuthor()
         {
-                return $this->autor;
+                return $this->author;
         }
 
         /**
-         * Set the value of autor
+         * Set the value of author
          *
          * @return  self
          */ 
-        public function setAutor($autor)
+        public function setAuthor($author)
         {
-                $this->autor = $autor;
+                $this->author = $author;
 
                 return $this;
         }
