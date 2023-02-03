@@ -127,4 +127,16 @@ class Usuario {
 
                 return $this;
         }
+
+        /**
+         * Set the value of idUsuario
+         *
+         * @return  self
+         */ 
+        public function setIdUsuario($idUsuario)
+        {
+                $this->idUsuario = $idUsuario;
+
+                return $this;
+        }
 }

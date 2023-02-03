@@ -1,4 +1,5 @@
 <?php 
+require_once(dirname(__FILE__)."/menu.php");
 function getCabecera() {
 ob_start();
 ?>
@@ -13,6 +14,7 @@ ob_start();
     <title>Agenda</title>
 </head>
 <body>
+    <?=getMenu()?>
 <?php
 $html = ob_get_contents();
 ob_clean();
