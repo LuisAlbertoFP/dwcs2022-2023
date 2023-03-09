@@ -2,9 +2,10 @@
 function getLogin($mensaje=null,$correo="") {
 ob_start();
 ?>
+<div class="gfg-box">
 <div class="card "  style="width: 32rem;">
 <h2>Entrar en agenda</h2>
-<div class="card-body">
+<div class="card-body" id="login">
 <?php
 if (!is_null($mensaje)) {
 ?>
@@ -21,6 +22,7 @@ if (!is_null($mensaje)) {
 </div>    
     <input type="submit" value="Entrar"  class="btn btn-primary">
 </form>
+</div>
 </div>
 </div>
 <?php

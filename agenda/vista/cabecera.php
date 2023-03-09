@@ -11,6 +11,7 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Agenda</title>
 </head>
 <body>

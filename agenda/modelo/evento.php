@@ -15,7 +15,9 @@ class Evento {
             $this->fecha_inicio = new DateTime();   
         }
         if ($this->fecha_fin == null) {
-            $this->fecha_fin = $this->fecha_inicio->add(new DateInterval('PT01H'));
+            $this->fecha_fin = clone $this->fecha_inicio;
+            $this->fecha_fin->modify('+ 1 hour');
+           // $this->fecha_fin->add(new DateInterval('PT01H'));
         }        
     }
 
@@ -138,4 +140,6 @@ class Evento {
         $this->fecha_fin  = $data["fecha_fin"];
     }
 
+
+                 
 }

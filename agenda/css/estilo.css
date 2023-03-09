@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.gfg-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #eee;
+}
+#id {
+padding: 8px 35px;
+font-size: 30px;
+color: green;
+border: 10px solid green;
+}
+h2{
+    margin-left: 0.5em;
+}
