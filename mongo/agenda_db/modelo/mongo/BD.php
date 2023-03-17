@@ -15,7 +15,7 @@ class BD {
          */
         //TODO Implementar este metodo
         if (!isset(self::$conexion)) {
-            $cliente = new MongoDB\Client("mongodb://localhost:27017");
+            $cliente = new MongoDB\Client("mongodb://root:example@mongo:27017");
             self::$conexion = $cliente->agenda;
         }
         return self::$conexion;

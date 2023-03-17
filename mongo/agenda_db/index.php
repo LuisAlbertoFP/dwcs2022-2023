@@ -1,9 +1,9 @@
 <?php
+session_start();
 require_once('modelo/Agenda.php');
 require_once('vista/html.php');
 require_once('vista/tablaContactos.php');
 require_once('vista/formContacto.php');
-session_start();
 $mensajeError = null;
 try {
     $agenda = new Agenda('',Agenda::MONGO);

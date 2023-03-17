@@ -1,7 +1,10 @@
 <?php
+
+use PhpParser\Node\Expr\Cast\Array_;
+
 require_once('BD.php');
 require_once(dirname(__FILE__)."/../Contacto.php");
-class Contacto extends Modelo\Contacto implements MongoDB\BSON\Unserializable, MongoDB\BSON\Serializable {
+class Contacto extends Modelo\Contacto implements MongoDB\BSON\Persistable {
    
    public function guardar(){  
         //Todo Guardar
@@ -35,18 +38,20 @@ class Contacto extends Modelo\Contacto implements MongoDB\BSON\Unserializable, M
         ['typeMap'=>['root' => Contacto::getClass()]]);
    }
 
-   public function bsonUnserialize ( array $data ) {
+   
+   public function bsonUnserialize(array  $data): void
+   {
 
+    //$this->nombre = $data["nombre"];
       foreach ($data as $key => $value) {
           switch ($key) {
               case '_id': $this->id_contacto = $value; break;
               default: $this->$key = $value; break;
-
           }
       }
    }
-
-   public function bsonSerialize()
+   
+   public function bsonSerialize(): array
    {
        $array = (array) $this;
        if (isset( $this->id_contacto)) {
